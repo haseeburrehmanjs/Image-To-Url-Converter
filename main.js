@@ -1,5 +1,3 @@
-
-
 import {
     uploadBytes,
     getDownloadURL,
@@ -12,14 +10,17 @@ import { app } from "./config.js";
 let storage = getStorage()
 
 let form = document.querySelector('#form')
-let myfile = document.querySelector('#myFile')
+let myFile = document.querySelector('#myFile')
 let email = document.querySelector('#email')
+let imageUrl = document.querySelector('#imageUrl')
 
 form.addEventListener('submit', async event => {
     event.preventDefault()
-    let file = myfile.files[0]
+    let file = myFile.files[0]
     let url = await uploadFile(file, `${email.value} + ${Date.now()}`)
     console.log(url);
+    imageUrl.textContent = url
+    imageUrl.href = url
 })
 
 async function uploadFile(file, userEmail) {
