@@ -21,6 +21,8 @@ form.addEventListener('submit', async event => {
     console.log(url);
     imageUrl.textContent = url
     imageUrl.href = url
+    file = '';
+    email.value = ''
 })
 
 async function uploadFile(file, userEmail) {
